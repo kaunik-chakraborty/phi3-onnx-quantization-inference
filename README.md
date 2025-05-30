@@ -1,6 +1,6 @@
-# Phi-3.5 Mini Instruct ONNX Quantization and Inference
+# Multi-Model ONNX Quantization and Inference
 
-This repository contains two Python scripts to demonstrate how to quantize the Microsoft Phi-3.5 Mini Instruct model using ONNX Runtime and Optimum, and then run interactive inference with the quantized model.
+This repository contains Python scripts to demonstrate how to quantize various ONNX models using ONNX Runtime and Optimum, and then run interactive inference with the quantized models. The project is designed to be multi-model capable, not just for Phi-3.
 
 ## Requirements
 
@@ -15,22 +15,37 @@ pip install onnx
 
 ## Files
 
--   `quantize_phi3.py`: Script to download and quantize the Phi-3.5 Mini Instruct model.
--   `run_quantized_phi3.py`: Script to load the quantized model and run interactive inference.
+-   `quantize_model.py`: Script to download and quantize various models.
+-   `run_quantized_model.py`: Script to load the quantized model and run interactive inference.
+-   `streamlit_app.py`: A Streamlit application for a user-friendly interface to select and interact with quantized models.
 
 ## Usage
 
-1.  **Quantize the Model:**
+1.  **Quantize a Model:**
 
-    Run the `quantize_phi3.py` script to download the model and quantize it to ONNX format for ARM64 dynamic quantization. This will create a directory named `phi3_quantized_model` containing the quantized model file (`model.onnx`).
+    Run the `quantize_model.py` script to download a model and quantize it to ONNX format. This will create a directory containing the quantized model file.
 
     ```bash
-    python3 quantize_phi3.py
+    python3 quantize_model.py
     ```
 
-2.  **Run Interactive Inference:**
+2.  **Run Interactive Inference (CLI):**
 
-    Once the model is quantized, run the `run_quantized_phi3.py` script. This will load the quantized model and start an interactive session where you can enter prompts.
+    Once a model is quantized, run the `run_quantized_model.py` script. This will load the quantized model and start an interactive session where you can enter prompts.
+
+    ```bash
+    python3 run_quantized_model.py
+    ```
+
+    Type your prompt and press Enter. The model's response will be displayed. Type `exit` or `quit` to end the session.
+
+3.  **Run Streamlit Application (GUI):**
+
+    For a more user-friendly experience, run the Streamlit application. This will provide a web interface to select and interact with quantized models.
+
+    ```bash
+    python3 -m streamlit run streamlit_app.py
+    ```
 
     ```bash
     python3 run_quantized_phi3.py
