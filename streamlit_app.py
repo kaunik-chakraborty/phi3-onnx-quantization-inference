@@ -1,4 +1,7 @@
 import streamlit as st
+
+st.set_page_config(layout="wide", page_title="Quantized Multi-Model Chatbot")
+
 import os
 from pathlib import Path
 from run_quantized_model import QuantizedModelRunner
@@ -10,7 +13,6 @@ def get_model_runner():
 
 runner = get_model_runner()
 
-st.set_page_config(layout="wide", page_title="Quantized Multi-Model Chatbot")
 st.title("🤖 Quantized Multi-Model Chatbot")
 
 st.markdown("""
